@@ -2,7 +2,7 @@ name: Parking Scraper Clever
 
 on:
   schedule:
-    - cron: '0 20 * * *'  # Everyday at 22:00
+    - cron: '0 20 * * *'   # Everyday at 22:00
   workflow_dispatch:  # Manual trigger
 
 permissions:
@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
+        python-version: '3.x'  # Python Version
 
     - name: Install dependencies
       run: |
@@ -42,13 +42,7 @@ jobs:
         fi
         echo "Parking history data is valid."
 
-    - name: Switch to 'history' branch
-      run: |
-        git fetch origin history  # Pobranie najnowszej wersji gałęzi 'history'
-        git checkout history      # Przełączenie się na gałąź 'history'
-        git pull origin history   # Synchronizacja lokalnej kopii z zdalną gałęzią 'history'
-
-    - name: Check for changes and commit to 'history'
+    - name: Check for changes and commit
       run: |
         if git diff --exit-code datas/parking_history_data.csv; then
           echo "No changes in data. Skipping commit."
@@ -57,7 +51,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add datas/parking_history_data.csv
           git commit -m "Automatyczna aktualizacja danych historycznych parkingów"
-          git push origin history  # Wypychanie zmian na gałąź 'history'
+          git push
         fi
       shell: bash
       env:
