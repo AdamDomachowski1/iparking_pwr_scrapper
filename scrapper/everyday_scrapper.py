@@ -17,7 +17,7 @@ headers = {
 }
 
 # Path to the CSV file where parking data will be saved
-csv_filename = '../datas/parking_history_data.csv'
+csv_filename = 'datas/parking_history_data.csv'
 
 # Function to send a POST request to the parking API for a specific parking ID
 def send_request(parking_id):
