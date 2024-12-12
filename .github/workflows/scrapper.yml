@@ -2,7 +2,9 @@ name: Parking Scraper Clever
 
 on:
   schedule:
-    - cron: '0 20 * * *'   # Everyday at 22:00
+    - cron: '0 20 * * *'  # Everyday at 22:00
+  push:
+  pull_request:
   workflow_dispatch:  # Manual trigger
 
 permissions:
