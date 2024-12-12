@@ -1,0 +1,64 @@
+name: Parking Scraper Clever
+
+on:
+  schedule:
+    - cron: '0 20 * * *'  # Everyday at 22:00
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  contents: write  # Access to write in repo
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Run scraper script with error handling
+      run: python scrapper/everyday_scrapper.py  # Run script
+
+    - name: Run tests to check if data is valid
+      run: |
+        if [ ! -s datas/parking_history_data.csv ]; then
+          echo "Parking history CSV is empty. Failing the workflow."
+          exit 1
+        fi
+        rows=$(wc -l < datas/parking_history_data.csv)
+        if [ "$rows" -lt 2 ]; then
+          echo "Parking history CSV does not contain enough rows. Failing the workflow."
+          exit 1
+        fi
+        echo "Parking history data is valid."
+
+    - name: Switch to 'history' branch
+      run: |
+        git fetch origin history  # Pobranie najnowszej wersji gałęzi 'history'
+        git checkout history      # Przełączenie się na gałąź 'history'
+        git pull origin history   # Synchronizacja lokalnej kopii z zdalną gałęzią 'history'
+
+    - name: Check for changes and commit to 'history'
+      run: |
+        if git diff --exit-code datas/parking_history_data.csv; then
+          echo "No changes in data. Skipping commit."
+        else
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add datas/parking_history_data.csv
+          git commit -m "Automatyczna aktualizacja danych historycznych parkingów"
+          git push origin history  # Wypychanie zmian na gałąź 'history'
+        fi
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
