@@ -59,7 +59,7 @@ fig.update_layout(
 )
 
 # Zapisanie wykresu jako pliku HTML
-output_file_path = 'parking_occupancy_visualization.html'
+output_file_path = 'datasets/parking_occupancy_visualization.html'
 fig.write_html(output_file_path)
 
 print(f"Interaktywny wykres zapisano jako {output_file_path}. Otwórz ten plik w przeglądarce, aby go zobaczyć.")
