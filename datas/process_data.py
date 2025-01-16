@@ -58,6 +58,9 @@ for col in parking_columns:
     clean_data = clean_data[(clean_data[col] > mean_spots - 3 * std_spots) &
                             (clean_data[col] < mean_spots + 3 * std_spots)]
 
+    # Zamiana wartości ujemnych na 0
+    clean_data[col] = clean_data[col].apply(lambda x: max(x, 0))
+
     # Tworzenie podstawowego DataFrame
     out_data = clean_data[['datetime_formatted', 'day_of_week', col]].rename(columns={
         'datetime_formatted': 'datetime', col: 'spots'
@@ -69,6 +72,7 @@ for col in parking_columns:
     # Zapisywanie do pliku
     output_file = os.path.join(output_folder, f"{col.replace(' ', '_').lower()}.csv")
     out_data.to_csv(output_file, index=False)
+
 
 print("Przetwarzanie danych zakończone. Wyniki zapisano w katalogu 'datasets'.")
 
