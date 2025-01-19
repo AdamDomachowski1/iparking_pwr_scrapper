@@ -1,0 +1,32 @@
+Raport dla Parking D20-D21
+========================================
+
+Miesiąc: 2024-10
+Godziny pełnego zajęcia: 374
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Wtorek          112
+Poniedziałek    110
+Piątek           86
+Środa            53
+Czwartek         13
+
+Miesiąc: 2024-11
+Godziny pełnego zajęcia: 497
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Środa           115
+Czwartek        109
+Wtorek          104
+Piątek           89
+Poniedziałek     80
+
+Miesiąc: 2024-12
+Godziny pełnego zajęcia: 408
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Wtorek          97
+Czwartek        89
+Środa           75
+Poniedziałek    74
+Piątek          73

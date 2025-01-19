@@ -1,0 +1,32 @@
+Raport dla Parking Wrońskiego
+========================================
+
+Miesiąc: 2024-10
+Godziny pełnego zajęcia: 219
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Poniedziałek    88
+Wtorek          57
+Piątek          57
+Środa           17
+Czwartek         0
+
+Miesiąc: 2024-11
+Godziny pełnego zajęcia: 379
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Środa           101
+Wtorek           80
+Czwartek         78
+Poniedziałek     64
+Piątek           56
+
+Miesiąc: 2024-12
+Godziny pełnego zajęcia: 228
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Piątek          59
+Wtorek          52
+Czwartek        47
+Środa           40
+Poniedziałek    30

@@ -1,0 +1,32 @@
+Raport dla Parking Polinka
+========================================
+
+Miesiąc: 2024-10
+Godziny pełnego zajęcia: 303
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Poniedziałek    107
+Wtorek           98
+Piątek           72
+Środa            26
+Czwartek          0
+
+Miesiąc: 2024-11
+Godziny pełnego zajęcia: 498
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Środa           125
+Czwartek        101
+Wtorek          101
+Piątek           95
+Poniedziałek     76
+
+Miesiąc: 2024-12
+Godziny pełnego zajęcia: 426
+Dni tygodnia z największą liczbą pełnego zajęcia:
+day_name
+Czwartek        93
+Poniedziałek    88
+Piątek          87
+Wtorek          82
+Środa           76
